@@ -6,8 +6,8 @@ class CreateReservations < ActiveRecord::Migration[5.0]
       t.datetime :accepted_at
       t.text :review
       t.integer :rating
-      t.references :users, foreign_key: true
-      t.references :boards, foreign_key: true
+      t.references :user, foreign_key: true
+      t.references :board, foreign_key: true
 
       t.timestamps
     end

@@ -11,7 +11,7 @@ class CreateBoards < ActiveRecord::Migration[5.0]
       t.string :city
       t.string :country
       t.boolean :automatic_reservation
-      t.references :users, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

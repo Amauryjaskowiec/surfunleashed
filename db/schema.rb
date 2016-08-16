@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816132317) do
+ActiveRecord::Schema.define(version: 20160816145608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boards", force: :cascade do |t|
+    t.string   "name"
+    t.string   "category"
+    t.integer  "size"
+    t.integer  "price_per_day"
+    t.float    "description"
+    t.string   "text"
+    t.string   "address"
+    t.string   "city"
+    t.string   "country"
+    t.boolean  "automatic_reservation"
+    t.integer  "user_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["user_id"], name: "index_boards_on_user_id", using: :btree
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "accepted_at"
+    t.text     "review"
+    t.integer  "rating"
+    t.integer  "user_id"
+    t.integer  "board_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["board_id"], name: "index_reservations_on_board_id", using: :btree
+    t.index ["user_id"], name: "index_reservations_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -35,4 +66,7 @@ ActiveRecord::Schema.define(version: 20160816132317) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "boards", "users"
+  add_foreign_key "reservations", "boards"
+  add_foreign_key "reservations", "users"
 end
