@@ -1,6 +1,6 @@
 class Board < ApplicationRecord
   belongs_to :user
-  has_many :reservation
+  has_many :reservations
 
   validates :name, presence: true
 
@@ -19,5 +19,7 @@ class Board < ApplicationRecord
   validates :country, presence: true
 
   validates :automatic_reservation, presence: true
+
+  validates :user, presence: true
 
 end
