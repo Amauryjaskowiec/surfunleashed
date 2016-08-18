@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Category.destroy_all
 shortboard = Category.create(name: "Shortboard")
 longboard = Category.create(name: "Longboard")
 funboard = Category.create(name: "Funboard")
