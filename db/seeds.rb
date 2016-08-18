@@ -9,6 +9,7 @@
 Category.destroy_all
 User.destroy_all
 Board.destroy_all
+
 shortboard = Category.create(name: "Shortboard")
 longboard = Category.create(name: "Longboard")
 funboard = Category.create(name: "Funboard")
@@ -31,4 +32,4 @@ uwl = Board.create(name: "uwl", category: longboard, size: 9, price_per_day: 35,
 
 # resa1 = Reservation.create(start_date: Date.today, end_date: Date.today + 6.day, surfer:)
 
-puts "hi"
+

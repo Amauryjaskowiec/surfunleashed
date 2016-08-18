@@ -7,7 +7,7 @@ class Board < ApplicationRecord
 
   # validates :category, presence: true
 
-  validates :size, presence: true, length: { in: 5..9 }
+  validates :size, presence: true, :numericality => { :greater_than => 4, :less_than_or_equal_to => 9 }
 
   validates :price_per_day, presence: true
 
