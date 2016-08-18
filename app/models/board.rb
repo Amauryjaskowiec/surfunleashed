@@ -19,7 +19,7 @@ class Board < ApplicationRecord
 
   # validates :country, presence: true
 
-  validates :automatic_reservation, presence: true
+  # validates :automatic_reservation
 
   validates :user, presence: true
 
