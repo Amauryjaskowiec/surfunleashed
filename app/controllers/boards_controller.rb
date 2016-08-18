@@ -1,6 +1,8 @@
 class BoardsController < ApplicationController
   before_action :find_board, only: [:show, :edit, :update]
 
+  before_action :authenticate_user!, only: [:create, :new, :create]
+
   def index
     @boards = Board.all
   end
