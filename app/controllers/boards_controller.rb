@@ -15,12 +15,12 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.new(board_params)
-      if @board.save
-        redirect_to user_path(@current_user), notice: "Your new board has been created !"
-      else
-        render :new
-      end
+    @board = current_user.boards.new(board_params)
+    if @board.save
+      redirect_to dashboard_path(), notice: "Your new board has been created !"
+    else
+      render :new
+    end
   end
 
 
@@ -38,7 +38,7 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:name, :type, :size, :price_per_day, :description, :address, :city, :country, :automatic_reservation)
+    params.require(:board).permit(:name, :size, :price_per_day, :description, :address, :city, :country, :automatic_reservation, :category_id)
   end
 
   def find_board
