@@ -1,17 +1,17 @@
 class ReservationsController < ApplicationController
 
-   before_action :find_reservation, only: [:show, :update]
+   before_action :find_reservation, only: [:update]
    before_action :find_board, only: [:new, :create]
+   before_action :authenticate_user!
 
   def new
     @reservation = Reservation.new
   end
 
-  def show
-  end
-
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.board = @board
+    @reservation.surfer = current_user
     if @reservation.save
       redirect_to user_path(current_user), notice: "Your reservation is now pending !"
       else
@@ -33,7 +33,7 @@ private
   end
 
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date, :surfer[id], :board[id])
+    params.require(:reservation).permit(:start_date, :end_date)
   end
 
   def find_board
