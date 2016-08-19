@@ -4,7 +4,11 @@ class BoardsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new, :create]
 
   def index
-    @boards = Board.all
+    if address = params[:address]
+      @boards = Board.near(address, 20)
+    else
+      @boards = Board.all
+    end
   end
 
   def show
