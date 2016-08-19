@@ -1,8 +1,13 @@
 class ReservationsController < ApplicationController
 
-   before_action :find_reservation, only: [:update]
-   before_action :find_board, only: [:new, :create]
+   before_action :find_reservation, only: [:show, :update]
+   before_action :find_board, only: [:show, :new, :create]
    before_action :authenticate_user!
+
+
+  def show
+      @reservation = current_user.reservations
+  end
 
   def new
     @reservation = Reservation.new
@@ -13,7 +18,8 @@ class ReservationsController < ApplicationController
     @reservation.board = @board
     @reservation.surfer = current_user
     if @reservation.save
-      redirect_to user_path(current_user), notice: "Your reservation is now pending !"
+      render :show
+      # redirect_to board_reservation_path(current_user), notice: "Your reservation is now pending !"
       else
         render :new
       end
