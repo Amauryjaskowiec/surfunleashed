@@ -33,7 +33,7 @@ private
   end
 
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date, :surfer[:id], :board[id])
+    params.require(:reservation).permit(:start_date, :end_date, :surfer[id], :board[id])
   end
 
   def find_board

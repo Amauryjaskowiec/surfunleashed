@@ -1,10 +1,9 @@
 <h1>Boards#show</h1>
-<p>Find me in app/views/boards/show.html.erb</p>
 
-
-
+<div class="container">
   <h2><%= @board.name %></h2>
   <p><%= @board.address %></p>
   <p><%= @board.price_per_day %></p>
   <p><%= @board.automatic_reservation %></p>
 <%= link_to "Rent the board", new_board_reservation_path(@board), {class: "btn btn-primary"} %>
+</div>

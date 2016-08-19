@@ -23,7 +23,6 @@ class BoardsController < ApplicationController
     end
   end
 
-
   def edit
   end
 
@@ -31,7 +30,6 @@ class BoardsController < ApplicationController
     @board.update(board_params)
 
     redirect_to user_path(@current_user), notice: "Your board has been updated !"
-
 
   end
 
