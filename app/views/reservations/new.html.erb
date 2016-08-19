@@ -1,2 +1,15 @@
 <h1>Reservations#new</h1>
 <p>Find me in app/views/reservations/new.html.erb</p>
+
+  <h2><%= @board.name %></h2>
+  <p><%= @board.address %></p>
+  <p><%= @board.price_per_day %></p>
+  <p><%= @board.automatic_reservation %></p>
+
+<%= simple_form_for([@board, @reservation]) do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.button :submit %>
+<% end %>
+
+
