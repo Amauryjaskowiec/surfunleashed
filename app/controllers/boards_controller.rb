@@ -27,7 +27,6 @@ class BoardsController < ApplicationController
     end
   end
 
-
   def edit
   end
 
@@ -36,13 +35,12 @@ class BoardsController < ApplicationController
 
     redirect_to user_path(@current_user), notice: "Your board has been updated !"
 
-
   end
 
   private
 
   def board_params
-    params.require(:board).permit(:name, :size, :price_per_day, :description, :address, :city, :country, :automatic_reservation, :category_id)
+    params.require(:board).permit(:name, :size, :price_per_day, :description, :address, :city, :country, :automatic_reservation, :category_id, photos: [])
   end
 
   def find_board

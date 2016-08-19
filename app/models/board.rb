@@ -2,6 +2,7 @@ class Board < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :reservations
+  has_attachments :photos, maximum: 2
 
   validates :name, presence: true
 
