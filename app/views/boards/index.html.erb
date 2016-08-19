@@ -10,22 +10,21 @@
   </div>
 </div>
 
-<div class="wrapper-grey">
-  <div class="container">
-    <div class="row">
-    <%= @boards.each do |board| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('logo.png');">
-          <div class="card-description">
-            <%= board.name %>
-            <%= board.address %>
+<div class="container">
+  <div class="row">
+    <% @boards.each do |board| %>
+      <%= link_to board_path(board) do %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card card-link" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('logo.png');">
+            <div class="card-description">
+              <%= board.name %>
+              <%= board.address %>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-    </div>
   </div>
 </div>
-
 
 
