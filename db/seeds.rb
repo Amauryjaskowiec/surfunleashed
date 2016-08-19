@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Board.destroy_all
 Category.destroy_all
 User.destroy_all
-Board.destroy_all
 
 shortboard = Category.create(name: "Shortboard")
 longboard = Category.create(name: "Longboard")
@@ -24,9 +24,9 @@ amaury = User.create(email: "momo@mchin.com", name: "Amaury", surname: "momo", p
 tonton = User.create(email: "tonton@mchin.com", name: "tonton", surname: "tata", phone_number: "0768750202", password: "bliblibli")
 
 
-js = Board.create(name: "JS", category: shortboard, size: 6, price_per_day: 23, description: "epoxy", text: "Bonne galette", address: "23 rue lamartine", city: "Lacanau", country: "France", automatic_reservation: true, user: amaury )
-mauricecole = Board.create(name: "mauricecole", category: hybrid, size: 7, price_per_day: 30, description: "Bonne planche niveau intermediaire", text: "du fun du fun", address: "12 rue lagrange", city: "biarritz", country: "France", automatic_reservation: true, user: michael )
-uwl = Board.create(name: "uwl", category: longboard, size: 9, price_per_day: 35, description: "Bonne glisse et rame nikel", text: "gros noserider", address: "40 residence triton", city: "seignosse", country: "France", automatic_reservation: false, user: tonton )
+js = Board.create(name: "JS", category: shortboard, size: 6, price_per_day: 23, description: "epoxy", text: "Bonne galette", address: "23 rue lamartine Lacanau", automatic_reservation: true, user: amaury )
+mauricecole = Board.create(name: "mauricecole", category: hybrid, size: 7, price_per_day: 30, description: "Bonne planche niveau intermediaire", text: "du fun du fun", address: "12 rue lagrange biarritz", automatic_reservation: true, user: michael )
+uwl = Board.create(name: "uwl", category: longboard, size: 9, price_per_day: 35, description: "Bonne glisse et rame nikel", text: "gros noserider", address: "40 residence triton seignosse", automatic_reservation: false, user: tonton )
 
 # Reservation.destroy_all
 
