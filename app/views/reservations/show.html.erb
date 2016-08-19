@@ -1,0 +1,15 @@
+
+<div class="alert alert-success">You reservation is now pending !</div>
+
+<h1 class="text-center">Here are my reservations</h1>
+
+<div class="container text-center">
+<% current_user.reservations.each do |reservation| %>
+<%= reservation.start_date %>
+<%= reservation.end_date %>
+<%= reservation.board.name %>
+<p> <%= reservation.board.price_per_day %> € </p>
+<hr>
+<% end %>
+</div>
+

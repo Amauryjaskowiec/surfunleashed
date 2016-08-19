@@ -10,9 +10,11 @@
          <%= f.input :price_per_day %>
          <%= f.input :description %>
          <%= f.input :address %>
-
          <%= f.input :automatic_reservation %>
-         
+
+         <%= f.input :photos, as: :attachinary %>
+
+
          <%= f.button :submit %>
         <% end %>
       </div>
