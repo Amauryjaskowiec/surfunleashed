@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :boards do
-    resources :reservations, only: [:new, :create, :update, :destroy]
+    resources :reservations, only: [:new, :create, :show, :update, :destroy]
   end
 
   get "/dashboard", to: "pages#dashboard", as: :dashboard
