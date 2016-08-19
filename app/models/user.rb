@@ -8,8 +8,8 @@ class User < ApplicationRecord
 
   has_many :reservations
   has_many :boards, dependent: :destroy
-  validates :name, presence: true
-  validates :surname, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
