@@ -1,13 +1,17 @@
-<h1>Boards#show</h1>
-
 <div class="container">
-  <h2><%= @board.name %></h2>
-  <p><%= @board.address %></p>
-  <p><%= @board.price_per_day %></p>
-  <p><%= @board.automatic_reservation %></p>
-    <% @board.photos.each do |photo| %>
-    <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-    <% end %>
-    <%= link_to "Rent the board", new_board_reservation_path(@board), {class: "btn btn-primary"} %>
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        <h2><%= @board.name %></h2>
+        <p><%= @board.address %></p>
+        <p><%= @board.price_per_day %>€/day</p>
+        <p><%= @board.automatic_reservation %></p>
+          <% @board.photos.each do |photo| %>
+          <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+          <% end %>
+          <p></p>
+          <p></p>
+          <%= link_to "Rent the board", new_board_reservation_path(@board), {class: "btn btn-primary"} %>
+      </div>
+    </div>
 </div>
 

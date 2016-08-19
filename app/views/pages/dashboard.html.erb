@@ -4,10 +4,14 @@
   <h2>Price per day >>><%=board.price_per_day%></h2>
   <h2>Description >>><%=board.description%></h2>
   <h2>Address >>><%=board.address%></h2>
-  <h2>City >>><%=board.city%></h2>
-  <h2>Country >>><%=board.country%></h2>
   <h2>Automatic Reservation >>><%=board.automatic_reservation%></h2>
+  <h2>Photos >>><%board.photos.each do |photo|%></h2>
+    <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+    <% end %>
 <% end %>
+
+
+
 
 
 
